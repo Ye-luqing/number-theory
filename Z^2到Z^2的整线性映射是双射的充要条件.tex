@@ -1,0 +1,252 @@
+\documentclass[twoside,11pt]{article} 
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{amsthm} 
+\usepackage{amssymb}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+% \usepackage{CJKutf8}
+\usepackage{xeCJK}
+\newtheorem{theorem}{定理}
+\newtheorem{lemma}{引理}
+\newtheorem{corollary}{推论}
+\newtheorem*{exercise}{习题}
+\newtheorem*{example}{例}
+\setCJKmainfont[BoldFont=Adobe Heiti Std R]{Adobe Song Std L}
+% \usepackage{latexdef}
+\def\ZZ{\mathbb{Z}} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth 0.00in \marginparsep 0.00in
+\textwidth 16cm \textheight 24cm \newcommand{\D}{\displaystyle}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献} \def \qed {\hfill \vrule height6pt
+  width 6pt depth 0pt} \topmargin -0.40in \oddsidemargin 0.08in
+\evensidemargin 0.08in \marginparwidth0.00in \marginparsep 0.00in
+\textwidth 15.5cm \textheight 24cm \pagestyle{myheadings}
+\markboth{\rm \centerline{}} {\rm \centerline{}}
+\begin{document}
+\title{\huge{\bf{整线性映射 $T:\mathbf{Z}^2\to \mathbf{Z}^2$是双射的充
+      要条件 }}} \author{\small{叶卢
+    庆\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业
+      本科在读,E-mail:h5411167@gmail.com}}\\{\small{杭州师范大学理学院,浙
+      江~杭州~310036}}} \date{}
+\maketitle
+
+% ----------------------------------------------------------------------------------------
+% ABSTRACT AND KEYWORDS
+% ----------------------------------------------------------------------------------------
+
+
+\textbf{\small{摘要}:}若线性映射 $T:\mathbf{Z}^2\to \mathbf{Z}^2$ 对应
+的矩阵中各个项都是整数,则称 $T$ 为从 $\mathbf{Z}^2$ 到 $\mathbf{Z}^2$
+的整线性映射.本文给出了整线性映射 $T:\mathbf{Z}^2\to \mathbf{Z}^2$ 为
+双射的充要条件.  \smallskip
+
+\textbf{\small{关键词}:}裴蜀定理,整线性映射\smallskip
+
+
+\vspace{30pt} % Some vertical space between the abstract and first section
+
+% ----------------------------------------------------------------------------------------
+% ESSAY BODY
+% ----------------------------------------------------------------------------------------
+
+\section{概念,记号与引理}
+\label{sec:1}
+\begin{enumerate}
+\item $\mathbf{Z}^2$ 是如下集合:
+$$
+\mathbf{Z}^2=\{(m,n)|m,n\in \mathbf{Z}\}.
+$$
+\item 设 $T:\mathbf{Z}^2\to \mathbf{Z}^2$ 是线性映射.且设 $T$ 对应的矩
+  阵为
+$$
+\begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix},
+$$
+也即,$\forall (m,n)\in \mathbf{Z}^2$,
+$$
+T((m,n))=\begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix}\begin{pmatrix}
+  m\\
+n\\
+\end{pmatrix}.
+$$
+若 $a,b,c,d\in \mathbf{Z}$,则称 $T$ 为从 $\mathbf{Z}^2$ 到
+$\mathbf{Z}^2$ 的整线性映射.
+\item 裴蜀定理:若 $a,b\in \mathbf{Z}$ 且 $a,b$ 互素,则存在 $p,q\in
+  \mathbf{Z}$,使得
+$$
+pa+qb=1.
+$$
+\end{enumerate}
+
+\section{主要结论}
+\label{sec:2}
+我们现在来证明,
+\begin{theorem}
+若 $T:\mathbf{Z}^2\to \mathbf{Z}^2$ 是整线性映射,且 $T$ 对应的矩阵为
+$$
+\begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix},
+$$
+则 $T$是双射的充要条件是
+$$
+\begin{vmatrix}
+  a&b\\
+c&d
+\end{vmatrix}=\pm 1.
+$$
+\end{theorem}
+\begin{proof}[\textbf{证明}]
+$\Leftarrow:$首先我们证明 $T$ 是单射,也即证明,当 $(m,n)\neq (p,q)$ 时,
+$$
+\begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix}\begin{pmatrix}
+  m\\
+n
+\end{pmatrix}\neq \begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix} \begin{pmatrix}
+  p\\
+q
+\end{pmatrix}.
+$$
+这由矩阵
+$$
+\begin{pmatrix}
+  a&b\\
+c&d
+\end{pmatrix}
+$$
+的可逆性可以很容易推出.\\
+
+其次我们证明 $T$ 是满射,也即证明,对于任意的
+$(p,q)\in \mathbf{Z}^2$,都存在相应的 $(m,n)\in \mathbf{Z}^2$,使得
+$T((m,n))=(p,q)$.我们来看方程组
+\begin{equation}\label{eq:1}
+\begin{cases}
+  am+bn=p,\\
+cm+dn=q
+\end{cases},
+\end{equation}
+解得
+\begin{equation}\label{eq:2}
+\begin{cases}
+  m=\frac{\begin{vmatrix}
+    p&b\\
+q&d
+  \end{vmatrix}}{\begin{vmatrix}
+    a&b\\
+c&d
+  \end{vmatrix}},\\
+n=\frac{\begin{vmatrix}
+    a&p\\
+c&q\\
+  \end{vmatrix}}{\begin{vmatrix}
+    a&b\\
+c&d
+  \end{vmatrix}}.
+\end{cases}
+\end{equation}
+而由于 
+$$
+\begin{vmatrix}
+  a&b\\
+c&d
+\end{vmatrix}=\pm 1,
+$$
+因此,$m,n$ 在 $\mathbf{Z}$ 中都有唯一解.因此证明了 $T$ 是满射.\\
+
+综上所述,$T$ 是双射.\\
+
+$\Rightarrow:$设 $(m,n)\in \mathbf{Z}^2,(p,q)\in \mathbf{Z}^2$,我们来
+看方程组 \ref{eq:1} 以及其解 \ref{eq:2}.假如
+$$
+\begin{vmatrix}
+  a&b\\
+c&d
+\end{vmatrix}\neq \pm 1,
+$$
+那么 $b,d$ 必定不互素,否则根据裴蜀定理,可以选取合适的 $p,q$,使得
+$$
+\begin{vmatrix}
+  p&b\\
+q&d
+\end{vmatrix}=1,
+$$
+这样就导致 $m$ 的整数解不存在,这与 $T$ 是双射矛盾.同理,可得 $a,c$ 必定
+不互素,否则将会导致 $n$ 的整数解不存在.不妨设 $b,d$ 的最大公约数为
+$k_1>1$,$a,c$ 的最大公约数为 $k_2>1$.设
+$b=b'k_1,d=d'k_1$,$a=a'k_2,c=c'k_2$.则 $b',d'$ 互素,$a',c'$ 互素.我们
+来看
+$$
+m=\frac{\begin{vmatrix}
+    p&b'\\
+q&d'
+  \end{vmatrix}}{\begin{vmatrix}
+    a&b'\\
+c&d'
+  \end{vmatrix}}.
+$$
+易得此时必然有
+$$
+\begin{vmatrix}
+  a&b'\\
+c&d'
+\end{vmatrix}=\pm 1,
+$$
+否则容易由裴蜀定理得到 $m$ 无整数解这个矛盾.然而我们知道
+$$
+\begin{vmatrix}
+  a&b'\\
+c&d'
+\end{vmatrix}=k_2 \begin{vmatrix}
+  a'&b'\\
+c'&d'
+\end{vmatrix}\neq 1,
+$$
+因此,我们的假设错误,可见,
+$$
+\begin{vmatrix}
+  a&b\\
+c&d\\
+\end{vmatrix}=\pm 1.
+$$
+\end{proof}
+% BIBLIOGRAPHY
+% ----------------------------------------------------------------------------------------
+%
+% ----------------------------------------------------------------------------------------
+\end{document}
+
+
+
+
+
+
+
+
