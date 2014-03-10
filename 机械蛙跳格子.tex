@@ -1,0 +1,258 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath,amsfonts,bm}
+\usepackage{hyperref}
+\usepackage{pgf,tikz}
+\usetikzlibrary{arrows}
+\usepackage{amsthm} 
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{pstricks-add}
+\usepackage{framed,mdframed}
+\usepackage{graphicx,color} 
+\usepackage{mathrsfs,xcolor} 
+\usepackage[all]{xy}
+\usepackage{fancybox} 
+\usepackage{xeCJK}
+\newtheorem*{theorem}{定理}
+\newtheorem*{lemma}{引理}
+\newtheorem*{corollary}{推论}
+\newtheorem*{exercise}{习题}
+\newtheorem*{example}{例}
+\geometry{left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+\setCJKmainfont[BoldFont=Adobe Heiti Std R]{Adobe Song Std L}
+\renewcommand{\today}{\number\year 年 \number\month 月 \number\day 日}
+\newcommand{\D}{\displaystyle}\newcommand{\ri}{\Rightarrow}
+\newcommand{\ds}{\displaystyle} \renewcommand{\ni}{\noindent}
+\newcommand{\pa}{\partial} \newcommand{\Om}{\Omega}
+\newcommand{\om}{\omega} \newcommand{\sik}{\sum_{i=1}^k}
+\newcommand{\vov}{\Vert\omega\Vert} \newcommand{\Umy}{U_{\mu_i,y^i}}
+\newcommand{\lamns}{\lambda_n^{^{\scriptstyle\sigma}}}
+\newcommand{\chiomn}{\chi_{_{\Omega_n}}}
+\newcommand{\ullim}{\underline{\lim}} \newcommand{\bsy}{\boldsymbol}
+\newcommand{\mvb}{\mathversion{bold}} \newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda} \newcommand{\va}{\varepsilon}
+\newcommand{\be}{\beta} \newcommand{\al}{\alpha}
+\newcommand{\dis}{\displaystyle} \newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}} \newcommand{\cF}{{\mathcal F}}
+\newcommand{\gB}{{\mathfrak B}} \newcommand{\eps}{\epsilon}
+\renewcommand\refname{参考文献}\renewcommand\figurename{图}
+\usepackage[]{caption2} 
+\renewcommand{\captionlabeldelim}{}
+\begin{document}
+\title{\huge{\bf{机械蛙跳格子}}} \author{\small{叶卢
+    庆\footnote{叶卢庆(1992---),男,杭州师范大学理学院数学与应用数学专业
+      本科在读,E-mail:h5411167@gmail.com}}\\{\small{杭州师范大学理学院,浙
+      江~杭州~310036}}}
+\maketitle
+如图\ref{fig:1},一个正五边形,一只机械蛙从 $A_1$ 开始逆时针方向起跳,每次跳两格.于是
+机械蛙的运动路径为
+$$
+A_1\to A_3\to A_5\to A_2\to A_4.
+$$
+我们发现机械蛙不重不漏地跳完了所有的格子.
+\begin{figure}[h]\centering
+\newrgbcolor{zzttqq}{0.6 0.2 0}
+\psset{xunit=1.0cm,yunit=1.0cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-6.02,-0.53)(6.73,4.26)
+\pspolygon[linecolor=zzttqq,fillcolor=zzttqq,fillstyle=solid,opacity=0.1](-1.14,1.34)(1.08,-0.18)(3.21,1.46)(2.31,4)(-0.38,3.92)
+\psline[linecolor=zzttqq](-1.14,1.34)(1.08,-0.18)
+\psline[linecolor=zzttqq](1.08,-0.18)(3.21,1.46)
+\psline[linecolor=zzttqq](3.21,1.46)(2.31,4)
+\psline[linecolor=zzttqq](2.31,4)(-0.38,3.92)
+\psline[linecolor=zzttqq](-0.38,3.92)(-1.14,1.34)
+\psline{->}(-1.14,1.34)(3.21,1.46)
+\psline{->}(3.21,1.46)(-0.38,3.92)
+\psline{->}(-0.38,3.92)(1.08,-0.18)
+\psline{->}(1.08,-0.18)(2.31,4)
+\begin{scriptsize}
+\psdots[dotstyle=*，linecolor=blue](-1.14,1.34)
+\rput[bl](-1.11,1.39){\blue{$A_1$}}
+\psdots[dotstyle=*,linecolor=blue](1.08,-0.18)
+\rput[bl](1.11,-0.13){\blue{$A_2$}}
+\psdots[dotstyle=*,linecolor=darkgray](3.21,1.46)
+\rput[bl](3.24,1.51){\darkgray{$A_3$}}
+\psdots[dotstyle=*,linecolor=darkgray](2.31,4)
+\rput[bl](2.34,4.05){\darkgray{$A_4$}}
+\psdots[dotstyle=*,linecolor=darkgray](-0.38,3.92)
+\rput[bl](-0.35,3.97){\darkgray{$A_5$}}
+\end{scriptsize}
+\end{pspicture*}
+\caption{}\label{fig:1}
+\end{figure}
+一般地,对于正 $n$ 边形$(n\geq 3)$ $A_1A_2\cdots A_n$来说,如果
+$A_1,\cdots,A_n$ 按照逆时针方向排列,且机械蛙从 $A_1$ 开始逆时针起跳,每次
+跳 $m$ 步$(m>1)$,且 $m<n$,则 $m,n$ 互素,当且仅当机械蛙能不重不漏地跳完
+所有格子.\\
+
+在进行正式的证明之前,我们通过画图来看一个例子,以找到感觉.如下图的 $23$
+边形,有$23$ 个格子,机械蛙以步长 $4$ 从 $A_1$ 开始逆时针跳.机械蛙在跳
+$5$ 步之后到达 $A_{21}$,此时与 $A_1$ 尚相差 $3$ 步,表现在带余除法上,即
+$$
+23=5\times 4+3.
+$$
+到达 $A_{21}$ 后,机械蛙继续以步长 $4$ 逆时针跳,它下一步就跳入了第二圈.在
+第二圈里,机械蛙显然不会重复过去已经跳过的点,因为机械蛙在 $A_{21}$ 时,是在
+$A_1$ 顺时针方向 $3$ 个位置,然后机械蛙在第二圈里所跳的格子,总是在其第
+一圈跳过了的格子
+的顺时针方向的 $3$ 个位置,直到机械蛙在第二圈跳到 $A_{18}$.此时机械蛙在
+$A_1$ 的顺时针方向的 $3\times 2=6$ 个位置.而
+$$
+6=1\times 4+2,
+$$
+因此机械蛙在第二圈达到 $A_{18}$ 后,继续跳一步,会达到 $A_{22}$,$A_{22}$
+在 $A_1$ 顺时针方向$2$ 个位置, $2<3$.机械蛙在到达
+$A_{22}$ 后,继续跳一步,会到达第三圈,在第三圈,机械蛙也不会重复以前已经
+跳过的格子,然后机械蛙在第三圈跳到格子 $A_{23}$.格子 $A_{23}$ 在 $A_1$
+的顺时针 $1$ 个格子的位置,$1<2$.然后,机械蛙继续跳第四圈,在第四圈,机械
+蛙跳到 $A_{20}$,到此为止,机械蛙已经不重不漏地跳过了所有点.不重,已经是
+显然的,之所以不漏,是因为根据机械蛙跳步的平移不变性,既然能在 $A_1$ 开始
+跳一直跳到 $A_{23}$,那么肯定能从 $A_{23}$ 开始跳一直跳到 $A_{22}$,……,
+直至从 $A_3$ 开始跳一直跳到 $A_2$.这样所有点都已经跳遍.
+\newrgbcolor{zzttqq}{0.6 0.2 0}
+\psset{xunit=0.5cm,yunit=0.5cm,algebraic=true,dotstyle=o,dotsize=3pt 0,linewidth=0.8pt,arrowsize=3pt 2,arrowinset=0.25}
+\begin{pspicture*}(-6.41,-19.19)(69,30.92)
+\pspolygon[linecolor=zzttqq,fillcolor=zzttqq,fillstyle=solid,opacity=0.1](3.08,-1.06)(5.78,-1.5)(8.5,-1.2)(11.03,-0.17)(13.2,1.5)(14.83,3.7)(15.81,6.25)(16.07,8.98)(15.58,11.67)(14.38,14.13)(12.56,16.17)(10.26,17.65)(7.65,18.46)(4.91,18.52)(2.26,17.85)(-0.11,16.49)(-2.03,14.54)(-3.35,12.14)(-3.97,9.48)(-3.85,6.74)(-3,4.14)(-1.48,1.87)(0.6,0.09)
+\psline[linecolor=zzttqq](3.08,-1.06)(5.78,-1.5)
+\psline[linecolor=zzttqq](5.78,-1.5)(8.5,-1.2)
+\psline[linecolor=zzttqq](8.5,-1.2)(11.03,-0.17)
+\psline[linecolor=zzttqq](11.03,-0.17)(13.2,1.5)
+\psline[linecolor=zzttqq](13.2,1.5)(14.83,3.7)
+\psline[linecolor=zzttqq](14.83,3.7)(15.81,6.25)
+\psline[linecolor=zzttqq](15.81,6.25)(16.07,8.98)
+\psline[linecolor=zzttqq](16.07,8.98)(15.58,11.67)
+\psline[linecolor=zzttqq](15.58,11.67)(14.38,14.13)
+\psline[linecolor=zzttqq](14.38,14.13)(12.56,16.17)
+\psline[linecolor=zzttqq](12.56,16.17)(10.26,17.65)
+\psline[linecolor=zzttqq](10.26,17.65)(7.65,18.46)
+\psline[linecolor=zzttqq](7.65,18.46)(4.91,18.52)
+\psline[linecolor=zzttqq](4.91,18.52)(2.26,17.85)
+\psline[linecolor=zzttqq](2.26,17.85)(-0.11,16.49)
+\psline[linecolor=zzttqq](-0.11,16.49)(-2.03,14.54)
+\psline[linecolor=zzttqq](-2.03,14.54)(-3.35,12.14)
+\psline[linecolor=zzttqq](-3.35,12.14)(-3.97,9.48)
+\psline[linecolor=zzttqq](-3.97,9.48)(-3.85,6.74)
+\psline[linecolor=zzttqq](-3.85,6.74)(-3,4.14)
+\psline[linecolor=zzttqq](-3,4.14)(-1.48,1.87)
+\psline[linecolor=zzttqq](-1.48,1.87)(0.6,0.09)
+\psline[linecolor=zzttqq](0.6,0.09)(3.08,-1.06)
+\psline{->}(3.08,-1.06)(13.2,1.5)
+\psline{->}(13.2,1.5)(15.58,11.66)
+\psline{->}(15.58,11.67)(7.65,18.46)
+\psline{->}(7.65,18.46)(-2.03,14.54)
+\psline{->}(-2.03,14.54)(-3,4.15)
+\psline{->}(-3,4.14)(5.78,-1.5)
+\psline{->}(5.78,-1.5)(14.83,3.7)
+\psline{->}(14.83,3.7)(14.38,14.13)
+\psline{->}(14.38,14.13)(4.91,18.53)
+\psline{->}(4.91,18.52)(-3.35,12.14)
+\psline{->}(-3.35,12.14)(-1.48,1.87)
+\psline{->}(-1.48,1.87)(8.5,-1.2)
+\psline{->}(8.5,-1.2)(15.81,6.25)
+\psline{->}(15.81,6.25)(12.56,16.17)
+\psline{->}(12.56,16.17)(2.26,17.85)
+\psline{->}(2.26,17.85)(-3.97,9.47)
+\psline{->}(-3.97,9.48)(0.6,0.09)
+\psline{->}(0.6,0.09)(11.04,-0.17)
+\psline{->}(11.03,-0.17)(16.06,8.98)
+\psline{->}(16.07,8.98)(10.26,17.66)
+\psline{->}(10.26,17.65)(-0.11,16.49)
+\psline{->}(-0.11,16.49)(-3.85,6.74)
+\begin{scriptsize}
+\psdots[dotstyle=*,linecolor=blue](3.08,-1.06)
+\rput[bl](3.41,-0.59){\blue{$A_1$}}
+\psdots[dotstyle=*,linecolor=blue](5.78,-1.5)
+\rput[bl](6.13,-1.01){\blue{$A_2$}}
+\psdots[dotstyle=*,linecolor=darkgray](8.5,-1.2)
+\rput[bl](8.85,-0.68){\darkgray{$A_3$}}
+\psdots[dotstyle=*,linecolor=darkgray](11.03,-0.17)
+\rput[bl](11.4,0.31){\darkgray{$A_4$}}
+\psdots[dotstyle=*,linecolor=darkgray](13.2,1.5)
+\rput[bl](13.54,1.96){\darkgray{$A_5$}}
+\psdots[dotstyle=*,linecolor=darkgray](14.83,3.7)
+\rput[bl](15.18,4.18){\darkgray{$A_6$}}
+\psdots[dotstyle=*,linecolor=darkgray](15.81,6.25)
+\rput[bl](16.17,6.73){\darkgray{$A_7$}}
+\psdots[dotstyle=*,linecolor=darkgray](16.07,8.98)
+\rput[bl](16.42,9.45){\darkgray{$A_8$}}
+\psdots[dotstyle=*,linecolor=darkgray](15.58,11.67)
+\rput[bl](15.92,12.16){\darkgray{$A_9$}}
+\psdots[dotstyle=*,linecolor=darkgray](14.38,14.13)
+\rput[bl](14.69,14.63){\darkgray{$A_{10}$}}
+\psdots[dotstyle=*,linecolor=darkgray](12.56,16.17)
+\rput[bl](12.88,16.69){\darkgray{$A_{11}$}}
+\psdots[dotstyle=*,linecolor=darkgray](10.26,17.65)
+\rput[bl](10.57,18.17){\darkgray{$A_{12}$}}
+\psdots[dotstyle=*,linecolor=darkgray](7.65,18.46)
+\rput[bl](7.94,18.91){\darkgray{$A_{13}$}}
+\psdots[dotstyle=*,linecolor=darkgray](4.91,18.52)
+\rput[bl](5.23,18.99){\darkgray{$A_{14}$}}
+\psdots[dotstyle=*,linecolor=darkgray](2.26,17.85)
+\rput[bl](2.59,18.33){\darkgray{$A_{15}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-0.11,16.49)
+\rput[bl](0.21,17.02){\darkgray{$A_{16}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-2.03,14.54)
+\rput[bl](-1.69,15.04){\darkgray{$A_{17}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-3.35,12.14)
+\rput[bl](-3,12.65){\darkgray{$A_{18}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-3.97,9.48)
+\rput[bl](-3.66,9.94){\darkgray{$A_{19}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-3.85,6.74)
+\rput[bl](-3.5,7.22){\darkgray{$A_{20}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-3,4.14)
+\rput[bl](-2.67,4.67){\darkgray{$A_{21}$}}
+\psdots[dotstyle=*,linecolor=darkgray](-1.48,1.87)
+\rput[bl](-1.11,2.37){\darkgray{$A_{22}$}}
+\psdots[dotstyle=*,linecolor=darkgray](0.6,0.09)
+\rput[bl](0.95,0.56){\darkgray{$A_{23}$}}
+\end{scriptsize}
+\end{pspicture*}
+
+有了这个例子做支撑,下面我们开始证明.
+\begin{proof}[\textbf{证明}]
+ $\ri$:肯定存在唯一的正整数 $p_{1}$,使得当机械蛙跳 $p_{1}$ 次时,在格子 $A_{1+p_{1}m}$ 上,而当
+ 其跳 $p_{1}+1$ 次时,却在格子 $A_{1+(p_{1}+1)m-n}$ 上.这正和带余除法对应,在带
+ 余除法中,存在唯一的 $p_1,r_1$,使得
+$$
+n=p_1m+r_1,
+$$
+且 $r_1<m$.易得 $A_{1+(p_1+1)m-n}=A_{1+m-r_1}$.然后机械蛙继续逆时针以
+步长 $m$ 跳第二圈,会到达 $A_{1+p_1m-r_1}$.如果 $2r_1<m$,则机械蛙的下一
+步会直接跳入第三圈,否则 $2r_1>m$,机械蛙的下一步仍然在第二圈,但是下下步
+会跳入第三圈.\\
+
+我们先讨论$2r_1<m$ 的情形,此时,机械蛙的下一步直接跳入第三圈,达到格子
+$A_{m-2r_1+1}$.然后机械蛙在第三圈里继续以步长 $m$ 逆时针运动,达到点
+$A_{1+p_1m-2r_1}$.如果 $3r_1<m$,则机械蛙的下一步会直接跳入第四圈,否则
+$3r_1>m$,机械蛙的下一步仍然在第三圈,但是下下步会跳入第四圈.\\
+
+可见,无论如何,终究会存在一个最小的 $k_{1}$,使得$k_{1}r_1>m$,在这个时候,机械蛙
+的下一步仍然在第 $k$ 圈,但是下下步会跳入第 $k+1$ 圈.因此 $(k_1-1)r_1<m$.这对应着带余除法
+$$
+k_1r_1=m+r_2,
+$$
+其中 $r_2=k_1r_1-m<r_1$.然后机械蛙继续以步长 $m$ 逆时针运动.我们发现,现在 $r_2$ 已经能被当成新的 $r_1$.终究存在一个
+最小的 $k_2$,使得 $k_2r_2>m$,因此 $(k_2-1)r_2<m$.这对应着
+带余除法
+$$
+k_2r_2=m+r_3,
+$$
+其中 $r_3=k_2r_2-m<r_2$.这样子不断进行下去,我们会发现肯定存在 $q$,使得
+$r_q=1$(至于为什么不是 $r_q>1$,是因为 $m,n$ 互素).然后结合机械蛙运动的
+平移不变性,就完成了证明.\\
+
+$\Leftarrow:$ 能不重不漏地跳完所有格子,说明存在 $a,b\in \mathbf{Z}$,使
+得
+$$
+am+bn=1,
+$$
+因此 $m,n$ 互素.证明完毕.
+\end{proof}
+\end{document}
+
+
+
+
+
+
+
+
